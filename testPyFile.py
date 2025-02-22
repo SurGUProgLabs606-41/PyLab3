@@ -1,7 +1,7 @@
 import pytest
 
-from Function import sequence_iter, sequence_rec
-from Linearization import linearize_iter, linearize_rec
+from linearization import linearize_iter, linearize_rec
+from sequence import sequence_iter, sequence_rec
 
 
 @pytest.mark.parametrize("k, expected", [
