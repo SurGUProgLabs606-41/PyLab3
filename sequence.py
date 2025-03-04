@@ -1,18 +1,20 @@
 # Итеративный вариант
 def sequence_iter(k):
-    a, b = 1, 1
-    for _ in range(2, k + 1):
-        a, b = 2 * b - 1 + a, 2 * a + b
-    return a, b
+    a, b = 1, 1  # Инициализация начальных значений a и b
+    for _ in range(2, k + 1):  # Цикл от 2 до k (включительно)
+        a_new = 2 * b + a  # Новое значение a по формуле
+        b_new = 2 * a + b  # Новое значение b по формуле
+        a, b = a_new, b_new  # Обновляем значения a и b
+    return a, b  # Возвращаем итоговые значения
 
 # Рекурсивный вариант
 def sequence_rec(k, a=1, b=1):
-    if k == 1:
+    if k == 1:  # Базовый случай рекурсии
         return a, b
-    a_new = 2 * b - 1 + a
-    b_new = 2 * a + b
-    return sequence_rec(k - 1, a_new, b_new)
+    a_new = 2 * b + a  # Новое значение a по формуле
+    b_new = 2 * a + b  # Новое значение b по формуле
+    return sequence_rec(k - 1, a_new, b_new)  # Рекурсивный вызов
 
 # Тест
-print(sequence_iter(5))
-print(sequence_rec(5))
+print(sequence_iter(5)) # Вызов итеративной функции с k = 5
+print(sequence_rec(5)) # Вызов рекурсивной функции с k = 5
